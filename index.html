@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 2025 - Pistas</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <header> <h1>Fórmula 1 2025</h1>
+        <nav> <a href="home.html">Home</a>
+            <a href="index.html" class="active">Pistas</a>
+            <a href="equipes.html">Equipes</a>
+        </nav>
+    </header>
+
+    <main> <section id="pistas-container"> <h2>Circuitos do Calendário 2025</h2>
+
+            <aside id="filtros"> <h3>Filtro e Busca de Pistas</h3>
+                <form id="form-filtro">
+                    
+                    <div>
+                        <label for="busca-pais">País/Nome da Pista:</label>
+                        <input type="text" id="busca-pais" name="pais" placeholder="Ex: Brasil" minlength="3">
+                    </div>
+
+                    <div>
+                        <label for="comp-min">Comprimento Mínimo (km):</label>
+                        <input type="number" id="comp-min" name="comprimento" min="4.0" step="0.001" value="4.0">
+                    </div>
+                    
+                    <div class="radio-group">
+                        <p>Tipo de Traçado:</p>
+                        <input type="radio" id="todos" name="tipo" value="todos" checked>
+                        <label for="todos">Todos</label>
+                        
+                        <input type="radio" id="permanente" name="tipo" value="Permanente">
+                        <label for="permanente">Permanente</label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="urbano" name="urbano" value="Urbano">
+                        <label for="urbano">Incluir Circuitos Urbanos</label>
+                    </div>
+
+                    <button type="submit">Aplicar Filtro</button>
+                </form>
+            </aside>
+            
+            <div id="lista-pistas"> 
+                </div>
+            <p id="sem-resultados" style="display:none;">Nenhum circuito encontrado com os filtros aplicados.</p>
+
+        </section>
+    </main>
+
+    <footer> <p>&copy; 2025 Projeto Final Front-End F1. | Sua parte: Pistas</p>
+    </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>
