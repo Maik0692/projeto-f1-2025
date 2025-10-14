@@ -1,6 +1,6 @@
 :root {
-    --cor-primaria: #e10600; /* Vermelho F1 */
-    --cor-secundaria: #15151e; /* Cinza Escuro/Preto */
+    --cor-primaria: #e10600;
+    --cor-secundaria: #15151e;
     --cor-texto: #ffffff;
     --cor-fundo: #0a0a0f;
     --cor-borda: #333;
@@ -44,7 +44,6 @@ main {
     margin: 0 auto;
 }
 
-/* Requisito HTML: <aside> (Filtros) */
 #filtros {
     background-color: var(--cor-secundaria);
     padding: 20px;
