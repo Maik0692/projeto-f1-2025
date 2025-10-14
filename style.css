@@ -1,4 +1,3 @@
-/* Requisito Estilização Avançada: Variáveis CSS */
 :root {
     --cor-primaria: #e10600; /* Vermelho F1 */
     --cor-secundaria: #15151e; /* Cinza Escuro/Preto */
@@ -54,11 +53,10 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-#form-filtro {
-    /* Requisito Layout Moderno: Flexbox para alinhar os campos */
+#form-filtro {    
     display: flex;
     gap: 20px;
-    align-items: flex-end; /* Alinha os botões com os inputs */
+    align-items: flex-end;
     flex-wrap: wrap;
 }
 
@@ -78,8 +76,7 @@ input[type="text"], input[type="number"], button {
 button[type="submit"] {
     background-color: var(--cor-primaria);
     cursor: pointer;
-    font-weight: bold;
-    /* Requisito Estilização Avançada: Pseudo-classe :hover e Transition */
+    font-weight: bold;    
     transition: background-color 0.3s ease, transform 0.1s;
 }
 
@@ -88,11 +85,9 @@ button[type="submit"]:hover {
     transform: translateY(-1px);
 }
 
-
-/* Requisito Layout Moderno: CSS Grid para a lista de cartões */
 #lista-pistas {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -100,8 +95,7 @@ button[type="submit"]:hover {
     background-color: var(--cor-secundaria);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Requisito Estilização Avançada: Transição e Pseudo-classe */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);    
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
@@ -114,8 +108,7 @@ button[type="submit"]:hover {
 .cartao-pista img {
     width: 100%;
     height: 180px;
-    object-fit: cover;
-    /* Requisito Acessibilidade: alt é obrigatório no HTML, mas aqui é só o estilo */
+    object-fit: cover;  
 }
 
 .cartao-pista h3 {
@@ -145,38 +138,24 @@ footer {
     font-size: 0.8em;
     border-top: 1px solid var(--cor-borda);
 }
-
-/* ------------------------------------------- */
-/* Requisito Design Responsivo: Media Queries */
-/* ------------------------------------------- */
-
-/* Tablet (max-width: 768px) */
 @media (max-width: 768px) {
-    #lista-pistas {
-        /* Muda para 2 colunas */
+    #lista-pistas {        
         grid-template-columns: repeat(2, 1fr); 
     }
 
-    #form-filtro {
-        /* Permite que os campos preencham melhor o espaço */
+    #form-filtro {        
         gap: 15px;
         align-items: stretch;
     }
 }
-
-/* Mobile (max-width: 480px) */
 @media (max-width: 480px) {
-    #lista-pistas {
-        /* Muda para 1 coluna */
+    #lista-pistas {        
         grid-template-columns: 1fr; 
     }
 
-    #form-filtro {
-        /* Empilha os elementos do formulário */
+    #form-filtro {        
         flex-direction: column;
-    }
-
-    /* Ocupa a largura total */
+    }    
     #form-filtro > div {
         width: 100%;
     }
