@@ -1,0 +1,183 @@
+/* Requisito Estilização Avançada: Variáveis CSS */
+:root {
+    --cor-primaria: #e10600; /* Vermelho F1 */
+    --cor-secundaria: #15151e; /* Cinza Escuro/Preto */
+    --cor-texto: #ffffff;
+    --cor-fundo: #0a0a0f;
+    --cor-borda: #333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--cor-secundaria);
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: var(--cor-primaria);
+}
+
+nav a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    margin: 0 15px;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--cor-primaria);
+    border-bottom: 2px solid var(--cor-primaria);
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Requisito HTML: <aside> (Filtros) */
+#filtros {
+    background-color: var(--cor-secundaria);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#form-filtro {
+    /* Requisito Layout Moderno: Flexbox para alinhar os campos */
+    display: flex;
+    gap: 20px;
+    align-items: flex-end; /* Alinha os botões com os inputs */
+    flex-wrap: wrap;
+}
+
+#form-filtro > div {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], input[type="number"], button {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--cor-borda);
+    background-color: #2a2a35;
+    color: var(--cor-texto);
+}
+
+button[type="submit"] {
+    background-color: var(--cor-primaria);
+    cursor: pointer;
+    font-weight: bold;
+    /* Requisito Estilização Avançada: Pseudo-classe :hover e Transition */
+    transition: background-color 0.3s ease, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+    background-color: #ff2a2a;
+    transform: translateY(-1px);
+}
+
+
+/* Requisito Layout Moderno: CSS Grid para a lista de cartões */
+#lista-pistas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+    gap: 30px;
+}
+
+.cartao-pista {
+    background-color: var(--cor-secundaria);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Requisito Estilização Avançada: Transição e Pseudo-classe */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.cartao-pista:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.cartao-pista img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    /* Requisito Acessibilidade: alt é obrigatório no HTML, mas aqui é só o estilo */
+}
+
+.cartao-pista h3 {
+    color: var(--cor-primaria);
+    padding: 10px 15px 0;
+    margin-top: 0;
+}
+
+.cartao-pista p {
+    padding: 0 15px;
+    font-size: 0.9em;
+}
+
+.cartao-pista button {
+    display: block;
+    width: 90%;
+    margin: 10px auto 15px;
+    background-color: #444;
+    border: none;
+}
+
+footer {
+    background-color: var(--cor-secundaria);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    font-size: 0.8em;
+    border-top: 1px solid var(--cor-borda);
+}
+
+/* ------------------------------------------- */
+/* Requisito Design Responsivo: Media Queries */
+/* ------------------------------------------- */
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+    #lista-pistas {
+        /* Muda para 2 colunas */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    #form-filtro {
+        /* Permite que os campos preencham melhor o espaço */
+        gap: 15px;
+        align-items: stretch;
+    }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    #lista-pistas {
+        /* Muda para 1 coluna */
+        grid-template-columns: 1fr; 
+    }
+
+    #form-filtro {
+        /* Empilha os elementos do formulário */
+        flex-direction: column;
+    }
+
+    /* Ocupa a largura total */
+    #form-filtro > div {
+        width: 100%;
+    }
+}
