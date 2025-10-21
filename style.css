@@ -1,30 +1,156 @@
-const tabPistas = document.getElementById('tabPistas');
-const pistasContainer = document.getElementById('pistasContainer');
-
-function togglePistas() {
-    pistasContainer.classList.toggle('visivel');
+:root {
+    --cor-principal: #e10600; 
+    --cor-fundo: #15151e; 
+    --cor-texto: #ffffff;
+    --cor-amarelo: #FFD700; 
 }
 
-tabPistas.addEventListener('click', togglePistas);
-
-console.log("Script JS da aba PISTAS carregado.");
-
-window.addEventListener('keydown', (event) => {
-    if(!pistasContainer.classList.contains('visivel')) {
-        return;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 0;    
+    padding-top: 60px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
-const scrollAmount = 300;
-    if(event.key==='ArrowLeft') {
-        event.preventDefault();
-        pistasContainer.scrollBy({
-            left: -scrollAmount,
-            behavior: 'smooth'
-        });
-    } else if(event.key==='ArrowRight') {
-        event.preventDefault();
-        pistasContainer.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
-    }
-});
+
+.header h1 {
+    margin: 0;
+    color: var(--cor-principal);
+    font-size: 2.5em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+#subtitulo {
+    color: var(--cor-amarelo); 
+    margin-top: 5px;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: normal; 
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.6), 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.content {   
+    width: 95%; 
+    max-width: 1000px;
+    padding: 20px;
+    background-color: #2a2a35;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);   
+    margin-top: 20px; 
+}
+
+.pistas-container {
+    display: flex;
+    overflow-x: scroll; 
+    padding-bottom: 250px; 
+    gap: 20px; 
+    margin-top: 20px;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+.pistas-container::-webkit-scrollbar {
+    display: none; 
+}
+
+.pista-card {
+    flex: 0 0 auto; 
+    width: 250px; 
+    background-color: #000000;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pista-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 15px rgba(225, 6, 0, 0.7); 
+}
+
+.pista-card img {
+    width: 100%;
+    height: 150px; 
+    object-fit: cover; 
+}
+
+.pista-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.pista-info h3 {
+    color: var(--cor-amarelo);
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+}
+
+.pista-info p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    color: #fff;
+}
+p {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+header .logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: #d32f2f;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 12px;
+    transition: 0.3s ease;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: #d32f2f;
+    color: #fff;
+}
