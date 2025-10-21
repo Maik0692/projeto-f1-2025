@@ -1,161 +1,30 @@
-:root {
-    --cor-primaria: #e10600;
-    --cor-secundaria: #15151e;
-    --cor-texto: #ffffff;
-    --cor-fundo: #0a0a0f;
-    --cor-borda: #333;
+const tabPistas = document.getElementById('tabPistas');
+const pistasContainer = document.getElementById('pistasContainer');
+
+function togglePistas() {
+    pistasContainer.classList.toggle('visivel');
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    margin: 0;
-    line-height: 1.6;
-}
+tabPistas.addEventListener('click', togglePistas);
 
-header {
-    background-color: var(--cor-secundaria);
-    padding: 20px 0;
-    text-align: center;
-}
+console.log("Script JS da aba PISTAS carregado.");
 
-header h1 {
-    margin: 0;
-    color: var(--cor-primaria);
+window.addEventListener('keydown', (event) => {
+    if(!pistasContainer.classList.contains('visivel')) {
+        return;
 }
-
-nav a {
-    color: var(--cor-texto);
-    text-decoration: none;
-    margin: 0 15px;
-    padding-bottom: 5px;
-    transition: color 0.3s;
-}
-
-nav a:hover, nav a.active {
-    color: var(--cor-primaria);
-    border-bottom: 2px solid var(--cor-primaria);
-}
-
-main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-#filtros {
-    background-color: var(--cor-secundaria);
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-#form-filtro {    
-    display: flex;
-    gap: 20px;
-    align-items: flex-end;
-    flex-wrap: wrap;
-}
-
-#form-filtro > div {
-    display: flex;
-    flex-direction: column;
-}
-
-input[type="text"], input[type="number"], button {
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid var(--cor-borda);
-    background-color: #2a2a35;
-    color: var(--cor-texto);
-}
-
-button[type="submit"] {
-    background-color: var(--cor-primaria);
-    cursor: pointer;
-    font-weight: bold;    
-    transition: background-color 0.3s ease, transform 0.1s;
-}
-
-button[type="submit"]:hover {
-    background-color: #ff2a2a;
-    transform: translateY(-1px);
-}
-
-#lista-pistas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.cartao-pista {
-    background-color: var(--cor-secundaria);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);    
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.cartao-pista:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-}
-
-.cartao-pista img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;  
-}
-
-.cartao-pista h3 {
-    color: var(--cor-primaria);
-    padding: 10px 15px 0;
-    margin-top: 0;
-}
-
-.cartao-pista p {
-    padding: 0 15px;
-    font-size: 0.9em;
-}
-
-.cartao-pista button {
-    display: block;
-    width: 90%;
-    margin: 10px auto 15px;
-    background-color: #444;
-    border: none;
-}
-
-footer {
-    background-color: var(--cor-secundaria);
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 40px;
-    font-size: 0.8em;
-    border-top: 1px solid var(--cor-borda);
-}
-@media (max-width: 768px) {
-    #lista-pistas {        
-        grid-template-columns: repeat(2, 1fr); 
+const scrollAmount = 300;
+    if(event.key==='ArrowLeft') {
+        event.preventDefault();
+        pistasContainer.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    } else if(event.key==='ArrowRight') {
+        event.preventDefault();
+        pistasContainer.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
     }
-
-    #form-filtro {        
-        gap: 15px;
-        align-items: stretch;
-    }
-}
-@media (max-width: 480px) {
-    #lista-pistas {        
-        grid-template-columns: 1fr; 
-    }
-
-    #form-filtro {        
-        flex-direction: column;
-    }    
-    #form-filtro > div {
-        width: 100%;
-    }
-}
+});
